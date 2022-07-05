@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "clip-apple-silicon"
+version = "0.1.0"
+description = "repo to work with openai's clip on apple's silicon gpu"
+authors = ["karimamunaff <karimamunaff@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+torchvision = {url = "https://download.pytorch.org/whl/nightly/cpu/torchvision-0.14.0.dev20220703-cp39-cp39-macosx_11_0_arm64.whl"}
+tqdm = "^4.64.0"
+typer = "^0.4.2"
+jupyterlab = "^3.4.3"
+clip = {git = "https://github.com/openai/CLIP.git", rev = "main"}
+ftfy = "^6.1.1"
+regex = "^2022.6.2"
+torch = {url = "https://download.pytorch.org/whl/nightly/cpu/torch-1.13.0.dev20220701-cp39-none-macosx_11_0_arm64.whl"}
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
