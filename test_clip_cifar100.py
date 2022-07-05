@@ -10,8 +10,13 @@ from time import time
 
 # Download the dataset
 cifar100 = CIFAR100(root=os.path.expanduser("~/.cache"), download=True, train=False)
+if torch.has_mps:
+    device = "mps"
+elif torch.cuda.is_available():
+    device = "cuda"
+else:
+    device = "cpu"
 
-device = "mps" if torch.has_mps else "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
 
 def encode_text(model, text):
@@ -31,7 +36,7 @@ def encode_text(model, text):
     except NotImplementedError:
         text = text.to('cpu')
         x = x.to('cpu')
-        x = x[torch.arange(x.shape[0]), text.argmax(dim=-1)].to('mps') @ model.text_projection
+        x = x[torch.arange(x.shape[0]), text.argmax(dim=-1)].to(device) @ model.text_projection
     return x
 
 
