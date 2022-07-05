@@ -1,5 +1,5 @@
 # clip-apple-silicon
-Run CLIP on Apple's M1 GPU. Refer to clip-silicon-fix.ipynb for more details on changes made in order to make CLIP work on Apple Silicon.
+Run CLIP on Apple's M1 GPU. Refer to `clip-silicon-fix.ipynb` for more details on changes made in order to make CLIP work on Apple Silicon.
 
 # Requirements
 1. Python >=3.9
