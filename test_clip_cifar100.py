@@ -42,7 +42,7 @@ def run(batch_size:int = 64):
 
         # Pick the top 5 most similar labels for the image
         image_features /= image_features.norm(dim=-1, keepdim=True)
-        #similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+        similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
         pbar.update(len(image_batch))
     pbar.close()
 
